@@ -1,17 +1,27 @@
 $small: 425px;
-$large: 1024px;
+$middle: 1024px;
+$large: 1440px;
 $extra: 1600px;
 @mixin respond-to($media) {
   @if $media == 'handhelds' {
-    @media only screen and (max-width: $small) { @content; }
-  }
-  @else if $media == 'medium-screens' {
-    @media only screen and (min-width: $small + 1) and (max-width: $large - 1) { @content; }
-  }
-  @else if $media == 'wide-screens' {
-    @media only screen and (min-width: $large) and (max-width: $extra - 1) { @content; }
-  }
-  @else if $media == 'extra-screens' {
-    @media only screen and (min-width: $extra) { @content; }
+    @media only screen and (max-width: $small) {
+      @content;
+    }
+  } @else if $media == 'medium-screens' {
+    @media only screen and (min-width: $small + 1) and (max-width: $middle - 1) {
+      @content;
+    }
+  } @else if $media == 'middle-screens' {
+    @media only screen and (min-width: $middle) and (max-width: $large - 1) {
+      @content;
+    }
+  } @else if $media == 'wide-screens' {
+    @media only screen and (min-width: $large) and (max-width: $extra - 1) {
+      @content;
+    }
+  } @else if $media == 'extra-screens' {
+    @media only screen and (min-width: $extra) {
+      @content;
+    }
   }
 }

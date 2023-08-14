@@ -1,5 +1,8 @@
 <template>
   <header class="header">
+    <div class="header__action">
+      <BaseButton :arrow="'right'"> Тест-драйв </BaseButton>
+    </div>
     <section class="banner">
       <img class="banner__image-bg" src="@/assets/images/banner_img_bg.png" />
       <img class="banner__image" src="@/assets/images/banner_img.png" />
@@ -10,7 +13,7 @@
     <section class="main__content">
       <BaseSlider :data="benefits" />
       <BaseCardList
-        :cards="featuresList"
+        v-model="featuresList"
         button-text="Добавить особенность"
         title="Уникальные особенности модели"
       />
@@ -25,6 +28,7 @@ import { storeToRefs } from 'pinia'
 import type { IFilter } from '@/types/index'
 import BaseSlider from '@/components/slider/BaseSlider.vue'
 import BaseCardList from '@/components/card/BaseCardList.vue'
+import BaseButton from '@/components/button/BaseButton.vue'
 
 const filters: IFilter[] = [
   { fieldName: 'model_name', fieldValue: 'Figaro' },

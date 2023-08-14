@@ -6,15 +6,26 @@
     @include respond-to('handhelds') {
       overflow: hidden;
     }
+    @include respond-to('medium-screens') {
+      overflow: hidden;
+    }
+    @include respond-to('extra-screens') {
+      justify-content: space-evenly;
+    }
 
     .item {
       width: 282px;
       margin: 0 24px 0 0;
 
       @include respond-to('handhelds') {
-        min-width: 100%;
+        min-width: 85%;
         width: auto;
-        margin: 0;
+        margin: 0 50px;
+      }
+      @include respond-to('medium-screens') {
+        min-width: 85%;
+        width: auto;
+        margin: 0 50px;
       }
 
       .item__image {
@@ -31,6 +42,12 @@
           font-size: 20px;
           margin: 40px 0 16px 0;
           text-align: center;
+          @include respond-to('handhelds') {
+            font-size: 32px;
+          }
+          @include respond-to('medium-screens') {
+            font-size: 32px;
+          }
         }
         .item__text {
           text-align: center;
@@ -38,6 +55,14 @@
           font-size: 16px;
           line-height: 25.6px;
           text-transform: uppercase;
+          @include respond-to('handhelds') {
+            line-height: 22px;
+            font-size: 20px;
+          }
+          @include respond-to('medium-screens') {
+            line-height: 22px;
+            font-size: 20px;
+          }
         }
       }
     }
@@ -50,6 +75,9 @@
     height: 100%;
 
     @include respond-to('handhelds') {
+      display: block;
+    }
+    @include respond-to('medium-screens') {
       display: block;
     }
 

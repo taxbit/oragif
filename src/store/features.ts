@@ -12,7 +12,7 @@ export const useFeaturesStore = defineStore('featuresStore', () => {
   async function getData(filters: IFilter[]) {
     const data = await api.getData()
 
-    featuresList.value =
+    const filteredList =
       data?.features?.filter((feature) =>
         filters.every((filter) => {
           let passed = true
@@ -26,8 +26,20 @@ export const useFeaturesStore = defineStore('featuresStore', () => {
         })
       ) || []
 
+    const sortedList = Array(filteredList.length)
+    Object.values(filteredList).forEach((feature) => {
+      sortedList[feature.sorting] = feature
+    })
+
+    const normalizedList = sortedList.map((feature) => ({
+      ...feature,
+      image: data.assets_domain + feature.image
+    }))
+
+    featuresList.value = normalizedList
+
     assetsDomain.value = data.assets_domain
-    blockHeading.value = data.block_heading;
+    blockHeading.value = data.block_heading
   }
 
   return { getData, featuresList, assetsDomain, blockHeading }

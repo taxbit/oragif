@@ -1,0 +1,50 @@
+.button {
+  width: 282px;
+  height: 50px;
+  position: relative;
+  outline: none;
+
+  &:hover {
+    background-color: #c31631;
+    color: white;
+    cursor: pointer;
+    .button__icon {
+      filter: invert(1);
+    }
+  }
+
+  &.button_arrow-right {
+    .button__icon {
+      background: url('@/assets/arrow.png') no-repeat;
+      position: absolute;
+      right: 10px;
+      top: 40%;
+      width: 8px;
+      height: 13px;
+    }
+  }
+  &.button_arrow-left {
+    .button__icon {
+      background: url('@/assets/arrow.png') no-repeat;
+      transform: rotate(180deg);
+      position: absolute;
+      right: 10px;
+      top: 40%;
+      width: 8px;
+      height: 13px;
+    }
+  }
+
+  .button__text {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+    margin-left: 20px;
+    &.button__text_center {
+      text-align: center;
+      margin-left: 0px;
+    }
+  }
+}

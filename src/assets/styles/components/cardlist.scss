@@ -1,4 +1,9 @@
 .cardlist {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
   .cardlist__title {
     font-size: 36px;
     font-weight: 300;
@@ -6,6 +11,14 @@
     letter-spacing: 0em;
     text-align: left;
     text-transform: uppercase;
+    align-self: baseline;
+
+    @include respond-to('handhelds') {
+      font-size: 28px;
+    }
+    @include respond-to('medium-screens') {
+      font-size: 28px;
+    }
   }
 
   .cardlist__content {
@@ -14,13 +27,39 @@
     flex-wrap: wrap;
     justify-content: center;
 
-    .cardlist__add {
-      width: 280px;
-      height: 50px;
-      text-align: center;
-      margin-top: 40px;
-      border: 2px #c31631 solid;
-      background-color: transparent;
+    @include respond-to('handhelds') {
+      display: grid;
+      row-gap: 24px;
+      justify-items: center;
+    }
+    @include respond-to('medium-screens') {
+      display: grid;
+      row-gap: 24px;
+      justify-items: center;
+    }
+    @include respond-to('middle-screens') {
+      display: grid;
+      row-gap: 24px;
+      justify-items: center;
+    }
+  }
+  .cardlist__add {
+    width: 280px;
+    height: 50px;
+    text-align: center;
+    margin-top: 40px;
+    border: 2px #c31631 solid;
+    background-color: transparent;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+
+    @include respond-to('handhelds') {
+      font-size: 20px;
+    }
+    @include respond-to('medium-screens') {
+      font-size: 20px;
     }
   }
 }
@@ -29,8 +68,35 @@
   width: 384px;
   height: 294px;
   margin: 0;
+  @include respond-to('handhelds') {
+    width: 100%;
+    height: fit-content;
+  }
+  @include respond-to('medium-screens') {
+    width: 100%;
+    height: fit-content;
+  }
+
+  .card__image {
+    img {
+      @include respond-to('handhelds') {
+        width: 100%;
+      }
+      @include respond-to('medium-screens') {
+        width: 100%;
+      }
+    }
+  }
   .card__caption {
     margin-top: 16px;
+    @include respond-to('handhelds') {
+      margin-top: 12px;
+      margin-bottom: 20px;
+    }
+    @include respond-to('medium-screens') {
+      margin-top: 12px;
+      margin-bottom: 20px;
+    }
     .card__text {
       margin: 0;
       font-size: 16px;
@@ -38,6 +104,12 @@
       line-height: 26px;
       letter-spacing: 0em;
       text-align: left;
+      @include respond-to('handhelds') {
+        font-size: 20px;
+      }
+      @include respond-to('medium-screens') {
+        font-size: 20px;
+      }
     }
   }
 }
