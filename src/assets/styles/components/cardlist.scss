@@ -1,0 +1,43 @@
+.cardlist {
+  .cardlist__title {
+    font-size: 36px;
+    font-weight: 300;
+    line-height: 48px;
+    letter-spacing: 0em;
+    text-align: left;
+    text-transform: uppercase;
+  }
+
+  .cardlist__content {
+    display: flex;
+    column-gap: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .cardlist__add {
+      width: 280px;
+      height: 50px;
+      text-align: center;
+      margin-top: 40px;
+      border: 2px #c31631 solid;
+      background-color: transparent;
+    }
+  }
+}
+
+.card {
+  width: 384px;
+  height: 294px;
+  margin: 0;
+  .card__caption {
+    margin-top: 16px;
+    .card__text {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 26px;
+      letter-spacing: 0em;
+      text-align: left;
+    }
+  }
+}

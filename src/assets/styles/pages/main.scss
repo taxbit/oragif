@@ -1,0 +1,102 @@
+.header {
+  width: 100%;
+  min-height: 464px;
+  position: relative;
+  background-color: #0abab5;
+  background-image: url('@/assets/images/figaro.svg'), url('@/assets/images/banner_bg.png');
+  background-repeat: no-repeat;
+  background-size: auto, 100%;
+  background-position: 50%;
+  position: relative;
+  margin-bottom: 110px;
+
+  @include respond-to(handhelds) {
+    width: 100%;
+    background-size: 90%, 100%;
+    background-position: 50% 60px;
+  }
+
+  @include respond-to(medium-screens) {
+    width: 100%;
+  }
+
+  .banner {
+    position: absolute;
+    width: 743px;
+    height: 326px;
+    bottom: -50px;
+    right: 0;
+    @include respond-to(handhelds) {
+      width: 100%;
+      bottom: -90px;
+      right: -20px;
+    }
+
+    @include respond-to(medium-screens) {
+      width: 100%;
+      bottom: -90px;
+      right: -20px;
+    }
+
+    .banner__image {
+      position: absolute;
+      @include respond-to(handhelds) {
+        width: 100%;
+      }
+    }
+    .banner__image-bg {
+      mix-blend-mode: color-burn;
+      position: absolute;
+      bottom: -30px;
+      left: -30px;
+      @include respond-to(handhelds) {
+        width: 100%;
+      }
+    }
+
+    &::after {
+      background: url('@/assets/images/nim_sticker.png') no-repeat;
+      content: ' ';
+      width: 98px;
+      height: 37px;
+      position: absolute;
+      right: 40px;
+      bottom: 0;
+    }
+  }
+}
+
+.main {
+  margin: 0 120px;
+  @include respond-to(handhelds) {
+    margin: 0 20px;
+  }
+
+  .main__title {
+    font-weight: 300;
+    text-transform: uppercase;
+    font-size: 48px;
+    line-height: 64px;
+    letter-spacing: 0em;
+    text-align: left;
+    position: relative;
+
+    @include respond-to(handhelds) {
+      font-size: 28px;
+      line-height: 44px;
+    }
+
+    &::before {
+      content: ' ';
+      width: 78px;
+      height: 4px;
+      background-color: #c10933;
+      display: block;
+      margin-bottom: 16px;
+    }
+  }
+
+  .main__content {
+    margin-bottom: 64px;
+  }
+}
