@@ -22,22 +22,23 @@
   }
 
   .cardlist__content {
-    display: flex;
+    display: grid;
     column-gap: 24px;
     row-gap: 24px;
-    flex-wrap: wrap;
+    grid-template-columns: 1fr 1fr 1fr;
     justify-content: center;
 
     @include respond-to('handhelds') {
-      display: grid;
+      grid-template-columns: 1fr;
       justify-items: center;
     }
     @include respond-to('medium-screens') {
-      display: grid;
+      grid-template-columns: 1fr;
       justify-items: center;
     }
     @include respond-to('middle-screens') {
       display: grid;
+      grid-template-columns: 1fr 1fr;
       justify-items: center;
     }
   }
