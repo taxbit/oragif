@@ -13,16 +13,16 @@
     <section class="main__content">
       <BaseSlider :data="benefits" />
       <BaseCardList
-        v-model="featuresList"
+        :cards="featuresList"
         button-text="Добавить особенность"
-        title="Уникальные особенности модели"
+        :title="blockHeading"
+        @add.once="addFeature"
       />
     </section>
   </main>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 import { useFeaturesStore } from '@/store/features'
 import { storeToRefs } from 'pinia'
 import type { IFilter } from '@/types/index'
@@ -36,9 +36,9 @@ const filters: IFilter[] = [
   { fieldName: 'image', required: true }
 ]
 useFeaturesStore().getData(filters)
-const { featuresList, blockHeading, assetsDomain } = storeToRefs(useFeaturesStore())
+const { featuresList, blockHeading } = storeToRefs(useFeaturesStore())
 
-const benefits = ref([
+const benefits = [
   {
     img: 'images/benefits/1.png',
     title: 'Выгода',
@@ -59,5 +59,16 @@ const benefits = ref([
     title: 'Онлайн обслуживание',
     text: 'Отправьте дилеру данные о вашем автомобиле в форме удобной анкеты'
   }
-])
+]
+
+const addFeature = () => {
+  featuresList.value.splice(1, 0, {
+    description:
+      'Вращение стационарно заставляет иначе взглянуть на то, что такое нестационарный гироскопический стабилизатор.',
+    image: 'assets/img4.png',
+    image_alt: 'нестационарный гироскопический стабилизатор',
+    model_name: 'string',
+    sorting: 1
+  })
+}
 </script>

@@ -24,22 +24,20 @@
   .cardlist__content {
     display: flex;
     column-gap: 24px;
+    row-gap: 24px;
     flex-wrap: wrap;
     justify-content: center;
 
     @include respond-to('handhelds') {
       display: grid;
-      row-gap: 24px;
       justify-items: center;
     }
     @include respond-to('medium-screens') {
       display: grid;
-      row-gap: 24px;
       justify-items: center;
     }
     @include respond-to('middle-screens') {
       display: grid;
-      row-gap: 24px;
       justify-items: center;
     }
   }
@@ -66,7 +64,7 @@
 
 .card {
   width: 384px;
-  height: 294px;
+  height: fit-content;
   margin: 0;
   @include respond-to('handhelds') {
     width: 100%;
@@ -79,6 +77,7 @@
 
   .card__image {
     img {
+      width: 100%;
       @include respond-to('handhelds') {
         width: 100%;
       }

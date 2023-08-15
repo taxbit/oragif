@@ -5,9 +5,7 @@ import { ref } from 'vue'
 
 export const useFeaturesStore = defineStore('featuresStore', () => {
   const featuresList = ref<IFeature[]>([])
-  const assetsDomain = ref<string>('')
   const blockHeading = ref<string>('')
-  const error = ref<Error | null>(null)
 
   async function getData(filters: IFilter[]) {
     const data = await api.getData()
@@ -26,21 +24,23 @@ export const useFeaturesStore = defineStore('featuresStore', () => {
         })
       ) || []
 
-    const sortedList = Array(filteredList.length)
-    Object.values(filteredList).forEach((feature) => {
-      sortedList[feature.sorting] = feature
-    })
+    filteredList.sort((a, b) => a.sorting - b.sorting)
 
-    const normalizedList = sortedList.map((feature) => ({
-      ...feature,
-      image: data.assets_domain + feature.image
-    }))
+    const normalizedList = filteredList.map((feature) => {
+      const image =
+        feature.image.charAt(0) === '/'
+          ? feature.image.substring(1, feature.image.length)
+          : feature.image
+      return {
+        ...feature,
+        image: data.assets_domain + image
+      }
+    })
 
     featuresList.value = normalizedList
 
-    assetsDomain.value = data.assets_domain
     blockHeading.value = data.block_heading
   }
 
-  return { getData, featuresList, assetsDomain, blockHeading }
+  return { getData, featuresList, blockHeading }
 })

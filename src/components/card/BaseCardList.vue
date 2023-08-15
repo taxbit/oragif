@@ -22,33 +22,15 @@ import '@/assets/styles/components/cardlist.scss'
 import type { CardItem } from '@/types'
 import BaseCard from './BaseCard.vue'
 import BaseButton from '@/components/button/BaseButton.vue'
-import { computed } from 'vue'
 
 interface Props {
-  modelValue: CardItem[]
+  cards: CardItem[]
   title: string
   buttonText: string
 }
-const props = defineProps<Props>()
-const emits = defineEmits(['update:modelValue'])
 
-const cards = computed({
-  get() {
-    return props.modelValue
-  },
-  set(value) {
-    emits('update:modelValue', value)
-  }
-})
+defineProps<Props>()
+const emits = defineEmits(['add'])
 
-const addFeature = () => {
-  cards.value.splice(2, 0, {
-    description:
-      'Вращение стационарно заставляет иначе взглянуть на то, что такое нестационарный гироскопический стабилизатор.',
-    image: 'img3.png',
-    image_alt: 'нестационарный гироскопический стабилизатор',
-    model_name: 'string',
-    sorting: 1
-  })
-}
+const addFeature = () => emits('add')
 </script>

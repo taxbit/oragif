@@ -11,8 +11,8 @@
 import "@/assets/styles/components/button.scss";
 
 interface Props {
-  arrow: 'left' | 'right' | null;
-  textAlign: 'center' | null;
+  arrow?: 'left' | 'right' | null;
+  textAlign?: 'center' | null;
 }
 defineProps<Props>()
 </script>

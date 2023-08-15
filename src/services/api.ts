@@ -1,4 +1,4 @@
-import type { IData, IFeature } from '@/types'
+import type { IData } from '@/types'
 
 export const api = {
   getData: async (): Promise<IData> => {
@@ -8,7 +8,7 @@ export const api = {
       })
       return response.json()
     } catch (error) {
-      throw new Error(error)
+      throw 'api error'
     }
   }
 }

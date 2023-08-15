@@ -21,23 +21,28 @@
     background-size: 90%, 100%;
     background-position: 50% 60px;
   }
-  
-  @include respond-to('medium-screens') {
+
+  @include respond-to('middle-screens') {
     width: 100%;
     background-size: 90%, 100%;
     background-position: 50% 60px;
   }
-  
+
   .header__action {
     position: absolute;
     left: 120px;
     bottom: 64px;
     @include respond-to('handhelds') {
-      bottom: 90%;
+      bottom: 88%;
+      left: calc(50% - 141px);
     }
-  
     @include respond-to('medium-screens') {
-      bottom: 90%;
+      bottom: 88%;
+      left: calc(50% - 141px);
+    }
+    @include respond-to('middle-screens') {
+      bottom: 37%;
+      left: calc(20% - 141px);
     }
   }
 
