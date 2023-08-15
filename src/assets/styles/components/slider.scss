@@ -18,12 +18,12 @@
       margin: 0 24px 0 0;
 
       @include respond-to('handhelds') {
-        min-width: 85%;
+        min-width: 75%;
         width: auto;
         margin: 0 50px;
       }
       @include respond-to('medium-screens') {
-        min-width: 85%;
+        min-width: 75%;
         width: auto;
         margin: 0 50px;
       }
@@ -98,12 +98,12 @@
     }
     .controls__left {
       content: '<';
-      left: 0;
+      left: 0px;
     }
 
     .controls__right {
       content: '>';
-      right: 0;
+      right: 0px;
     }
   }
 }
