@@ -51,9 +51,19 @@
     width: 743px;
     height: 326px;
     bottom: -50px;
-    right: 0;
+    right: 183px;
+
     @include respond-to('handhelds') {
       width: 100%;
+      right: 0px;
+      overflow: hidden;
+    }
+    @include respond-to('medium-screens') {
+      right: 0px;
+      overflow: hidden;
+    }
+    @include respond-to('middle-screens') {
+      right: 0px;
       overflow: hidden;
     }
 
